@@ -42,6 +42,7 @@ Partial Class DSPControlForm
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaunchAshitaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -203,11 +204,22 @@ Partial Class DSPControlForm
         Me.LaunchAshitaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.LaunchAshitaToolStripMenuItem.Text = "Launch Ashita"
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(48, 257)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(133, 17)
+        Me.CheckBox1.TabIndex = 14
+        Me.CheckBox1.Text = "Show Server Consoles"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'DSPControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(528, 272)
+        Me.ClientSize = New System.Drawing.Size(528, 286)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.AshitaPath)
         Me.Controls.Add(Me.Label2)
@@ -252,5 +264,6 @@ Partial Class DSPControlForm
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaunchAshitaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 
 End Class

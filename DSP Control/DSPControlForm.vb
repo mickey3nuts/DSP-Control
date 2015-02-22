@@ -38,22 +38,35 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles StartServer.Click
         Dim proc As New ProcessStartInfo()
+        Dim prochide As New ProcessStartInfo()
+        prochide.WindowStyle = ProcessWindowStyle.Hidden
         Dim p() As Process
         'Null String code found at: https://social.msdn.microsoft.com/Forums/vstudio/en-US/dd7bcfa5-d9d7-4914-a768-21f0aa0a0a7c/vbnet-check-to-see-if-my-applications-settings-are-null-or-empty?forum=vbgeneral
         If String.IsNullOrEmpty(TextBox1.Text) Then
             MsgBox("You need to declare the DSP path", vbExclamation)
         Else
+            'Check to see if process is running at: https://social.msdn.microsoft.com/Forums/vstudio/en-US/77153d31-a23f-48d0-a4c4-2a3867370af6/vbnet-check-to-see-if-a-process-is-running
             p = Process.GetProcessesByName("DSConnect-server")
             If p.Count > 0 Then
                 MsgBox("The server is already running", vbExclamation)
             Else
-                proc.WorkingDirectory = TextBox1.Text
-                proc.FileName = "DSConnect-server.exe"
-                Process.Start(proc)
-                proc.FileName = "DSGame-server.exe"
-                Process.Start(proc)
-                proc.FileName = "DSSearch-server.exe"
-                Process.Start(proc)
+                If CheckBox1.CheckState = 1 Then
+                    proc.WorkingDirectory = TextBox1.Text
+                    proc.FileName = "DSConnect-server.exe"
+                    Process.Start(proc)
+                    proc.FileName = "DSGame-server.exe"
+                    Process.Start(proc)
+                    proc.FileName = "DSSearch-server.exe"
+                    Process.Start(proc)
+                Else
+                    prochide.WorkingDirectory = TextBox1.Text
+                    prochide.FileName = "DSConnect-server.exe"
+                    Process.Start(prochide)
+                    prochide.FileName = "DSGame-server.exe"
+                    Process.Start(prochide)
+                    prochide.FileName = "DSSearch-server.exe"
+                    Process.Start(prochide)
+                End If
             End If
         End If
     End Sub
@@ -99,15 +112,25 @@
         Next
 
         Dim proc As New ProcessStartInfo()
-        Dim p() As Process
-        'Null String code found at: https://social.msdn.microsoft.com/Forums/vstudio/en-US/dd7bcfa5-d9d7-4914-a768-21f0aa0a0a7c/vbnet-check-to-see-if-my-applications-settings-are-null-or-empty?forum=vbgeneral
-        proc.WorkingDirectory = TextBox1.Text
-        proc.FileName = "DSConnect-server.exe"
-        Process.Start(proc)
-        proc.FileName = "DSGame-server.exe"
-        Process.Start(proc)
-        proc.FileName = "DSSearch-server.exe"
-        Process.Start(proc)
+        Dim prochide As New ProcessStartInfo()
+        prochide.WindowStyle = ProcessWindowStyle.Hidden
+            If CheckBox1.CheckState = 1 Then
+                proc.WorkingDirectory = TextBox1.Text
+                proc.FileName = "DSConnect-server.exe"
+                Process.Start(proc)
+                proc.FileName = "DSGame-server.exe"
+                Process.Start(proc)
+                proc.FileName = "DSSearch-server.exe"
+                Process.Start(proc)
+            Else
+                prochide.WorkingDirectory = TextBox1.Text
+                prochide.FileName = "DSConnect-server.exe"
+                Process.Start(prochide)
+                prochide.FileName = "DSGame-server.exe"
+                Process.Start(prochide)
+                prochide.FileName = "DSSearch-server.exe"
+                Process.Start(prochide)
+            End If
     End Sub
 
     Private Sub LaunchAshitaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchAshitaToolStripMenuItem.Click
