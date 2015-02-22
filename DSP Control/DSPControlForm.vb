@@ -5,7 +5,7 @@
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '' add all textbox names here whose value you want to persist.
-        textBoxes = New TextBox() {TextBox1}
+        textBoxes = New TextBox() {TextBox1, TextBox2}
 
         With My.Settings
             If .TextBoxValues Is Nothing Then .TextBoxValues = New System.Collections.Specialized.StringCollection
@@ -108,5 +108,31 @@
         Process.Start(proc)
         proc.FileName = "DSSearch-server.exe"
         Process.Start(proc)
+    End Sub
+
+    Private Sub LaunchAshitaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchAshitaToolStripMenuItem.Click
+        Dim proc As New ProcessStartInfo()
+        Dim p() As Process
+        If String.IsNullOrEmpty(TextBox2.Text) Then
+            MsgBox("You need to declare Ashita's path", vbExclamation)
+        Else
+            p = Process.GetProcessesByName("Ashita")
+            If p.Count > 0 Then
+                MsgBox("Ashita is already running", vbExclamation)
+            Else
+                proc.WorkingDirectory = TextBox2.Text
+                proc.FileName = "Ashita.exe"
+                Process.Start(proc)
+            End If
+        End If
+    End Sub
+
+    Private Sub AshitaPath_Click(sender As Object, e As EventArgs) Handles AshitaPath.Click
+        Dim folderBrowser As New FolderBrowserDialog
+        folderBrowser.SelectedPath = My.Computer.FileSystem.SpecialDirectories.MyDocuments    'Set the default selected folder path
+
+        If (folderBrowser.ShowDialog() = DialogResult.OK) Then
+            TextBox2.Text = folderBrowser.SelectedPath
+        End If
     End Sub
 End Class

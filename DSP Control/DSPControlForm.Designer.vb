@@ -37,6 +37,11 @@ Partial Class DSPControlForm
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.DSPPath = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.AshitaPath = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaunchAshitaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,7 +50,7 @@ Partial Class DSPControlForm
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(528, 24)
@@ -137,14 +142,14 @@ Partial Class DSPControlForm
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(45, 225)
+        Me.TextBox1.Location = New System.Drawing.Point(48, 225)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
         Me.TextBox1.TabIndex = 7
         '
         'DSPPath
         '
-        Me.DSPPath.Location = New System.Drawing.Point(151, 222)
+        Me.DSPPath.Location = New System.Drawing.Point(154, 222)
         Me.DSPPath.Name = "DSPPath"
         Me.DSPPath.Size = New System.Drawing.Size(75, 23)
         Me.DSPPath.TabIndex = 8
@@ -160,11 +165,52 @@ Partial Class DSPControlForm
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "DSP location"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(312, 206)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(80, 13)
+        Me.Label2.TabIndex = 10
+        Me.Label2.Text = "Ashita Location"
+        '
+        'AshitaPath
+        '
+        Me.AshitaPath.Location = New System.Drawing.Point(421, 223)
+        Me.AshitaPath.Name = "AshitaPath"
+        Me.AshitaPath.Size = New System.Drawing.Size(75, 23)
+        Me.AshitaPath.TabIndex = 11
+        Me.AshitaPath.Text = "Browse"
+        Me.AshitaPath.UseVisualStyleBackColor = True
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(315, 225)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox2.TabIndex = 12
+        '
+        'ToolsToolStripMenuItem
+        '
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaunchAshitaToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ToolsToolStripMenuItem.Text = "Tools"
+        '
+        'LaunchAshitaToolStripMenuItem
+        '
+        Me.LaunchAshitaToolStripMenuItem.Name = "LaunchAshitaToolStripMenuItem"
+        Me.LaunchAshitaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LaunchAshitaToolStripMenuItem.Text = "Launch Ashita"
+        '
         'DSPControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(528, 272)
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.AshitaPath)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DSPPath)
         Me.Controls.Add(Me.TextBox1)
@@ -201,5 +247,10 @@ Partial Class DSPControlForm
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents DSPPath As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents AshitaPath As System.Windows.Forms.Button
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LaunchAshitaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
