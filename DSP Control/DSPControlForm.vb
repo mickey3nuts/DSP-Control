@@ -3,7 +3,7 @@
     'Following code is from: https://pradeep1210.wordpress.com/2011/07/01/persisting-the-values-of-controls-on-your-form/
     Dim textBoxes() As TextBox
 
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub DSPControlForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         '' add all textbox names here whose value you want to persist.
         textBoxes = New TextBox() {TextBox1, TextBox2}
 
@@ -16,7 +16,7 @@
         End With
     End Sub
 
-    Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub DSPControlForm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         For i = 0 To textBoxes.Length - 1
             My.Settings.TextBoxValues(i) = textBoxes(i).Text
         Next
@@ -38,6 +38,8 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles StartServer.Click
         Dim proc As New ProcessStartInfo()
+        'Hidden Windows demo: http://stackoverflow.com/questions/2048035/how-to-start-an-invisible-process-in-vb-net
+        'Checkbox check: http://www.homeandlearn.co.uk/NET/nets4p14.html
         Dim prochide As New ProcessStartInfo()
         prochide.WindowStyle = ProcessWindowStyle.Hidden
         Dim p() As Process
