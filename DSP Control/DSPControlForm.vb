@@ -99,39 +99,9 @@
     End Sub
 
     Private Sub RestartServer_Click(sender As Object, e As EventArgs) Handles RestartServer.Click
-        Dim myDSPConnectProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSConnect-server")
-        Dim myDSPGameProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSGame-server")
-        Dim myDSPSearchProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSSearch-server")
-        For Each myKill As Process In myDSPConnectProcess
-            myKill.Kill()
-        Next
-        For Each myKill As Process In myDSPGameProcess
-            myKill.Kill()
-        Next
-        For Each myKill As Process In myDSPSearchProcess
-            myKill.Kill()
-        Next
-
-        Dim proc As New ProcessStartInfo()
-        Dim prochide As New ProcessStartInfo()
-        prochide.WindowStyle = ProcessWindowStyle.Hidden
-            If CheckBox1.CheckState = 1 Then
-                proc.WorkingDirectory = TextBox1.Text
-                proc.FileName = "DSConnect-server.exe"
-                Process.Start(proc)
-                proc.FileName = "DSGame-server.exe"
-                Process.Start(proc)
-                proc.FileName = "DSSearch-server.exe"
-                Process.Start(proc)
-            Else
-                prochide.WorkingDirectory = TextBox1.Text
-                prochide.FileName = "DSConnect-server.exe"
-                Process.Start(prochide)
-                prochide.FileName = "DSGame-server.exe"
-                Process.Start(prochide)
-                prochide.FileName = "DSSearch-server.exe"
-                Process.Start(prochide)
-            End If
+        'Note 8
+        StopServer_Click(sender, e)
+        Button1_Click(sender, e)
     End Sub
 
     Private Sub LaunchAshitaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchAshitaToolStripMenuItem.Click
