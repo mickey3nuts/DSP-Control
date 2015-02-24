@@ -1,6 +1,5 @@
 ﻿Public Class DSPControlForm
-
-    'Following code is from: https://pradeep1210.wordpress.com/2011/07/01/persisting-the-values-of-controls-on-your-form/
+    'Note 1
     Dim textBoxes() As TextBox
 
     Private Sub DSPControlForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -38,16 +37,16 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles StartServer.Click
         Dim proc As New ProcessStartInfo()
-        'Hidden Windows demo: http://stackoverflow.com/questions/2048035/how-to-start-an-invisible-process-in-vb-net
-        'Checkbox check: http://www.homeandlearn.co.uk/NET/nets4p14.html
+        'Note 2
+        'Note 3
         Dim prochide As New ProcessStartInfo()
         prochide.WindowStyle = ProcessWindowStyle.Hidden
         Dim p() As Process
-        'Null String code found at: https://social.msdn.microsoft.com/Forums/vstudio/en-US/dd7bcfa5-d9d7-4914-a768-21f0aa0a0a7c/vbnet-check-to-see-if-my-applications-settings-are-null-or-empty?forum=vbgeneral
+        'Note 4
         If String.IsNullOrEmpty(TextBox1.Text) Then
             MsgBox("You need to declare the DSP path", vbExclamation)
         Else
-            'Check to see if process is running at: https://social.msdn.microsoft.com/Forums/vstudio/en-US/77153d31-a23f-48d0-a4c4-2a3867370af6/vbnet-check-to-see-if-a-process-is-running
+            'Note 5
             p = Process.GetProcessesByName("DSConnect-server")
             If p.Count > 0 Then
                 MsgBox("The server is already running", vbExclamation)
@@ -74,7 +73,7 @@
     End Sub
 
     Private Sub DSPPath_Click(sender As Object, e As EventArgs) Handles DSPPath.Click
-        'Code for this located at: http://www.thewebflash.com/2011/11/folder-browse-dialog-coding-in-visual.html
+        'Note 6
         Dim folderBrowser As New FolderBrowserDialog
         folderBrowser.SelectedPath = My.Computer.FileSystem.SpecialDirectories.MyDocuments    'Set the default selected folder path
 
@@ -84,7 +83,7 @@
     End Sub
 
     Private Sub StopServer_Click(sender As Object, e As EventArgs) Handles StopServer.Click
-        'Code from https://www.youtube.com/watch?v=EbUYvYQMZNA
+        'Note 7
         Dim myDSPConnectProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSConnect-server")
         Dim myDSPGameProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSGame-server")
         Dim myDSPSearchProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSSearch-server")
