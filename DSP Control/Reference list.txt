@@ -5,4 +5,4 @@ Note 4: Null String code found at: https://social.msdn.microsoft.com/Forums/vstu
 Note 5: Check to see if process is running at: https://social.msdn.microsoft.com/Forums/vstudio/en-US/77153d31-a23f-48d0-a4c4-2a3867370af6/vbnet-check-to-see-if-a-process-is-running
 Note 6: Code for this located at: http://www.thewebflash.com/2011/11/folder-browse-dialog-coding-in-visual.html
 Note 7: Code from https://www.youtube.com/watch?v=EbUYvYQMZNA
-Note 8: Form cleanup from xdemolish
+Note 8: Form cleanup from xdemolish https://github.com/xdemolish (Please see current pull)
