@@ -16,6 +16,18 @@
     End Sub
 
     Private Sub DSPControlForm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        Dim myDSPConnectProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSConnect-server")
+        Dim myDSPGameProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSGame-server")
+        Dim myDSPSearchProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSSearch-server")
+        For Each myKill As Process In myDSPConnectProcess
+            myKill.Kill()
+        Next
+        For Each myKill As Process In myDSPGameProcess
+            myKill.Kill()
+        Next
+        For Each myKill As Process In myDSPSearchProcess
+            myKill.Kill()
+        Next
         For i = 0 To textBoxes.Length - 1
             My.Settings.TextBoxValues(i) = textBoxes(i).Text
         Next
@@ -27,6 +39,22 @@
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Dim myDSPConnectProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSConnect-server")
+        Dim myDSPGameProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSGame-server")
+        Dim myDSPSearchProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSSearch-server")
+        For Each myKill As Process In myDSPConnectProcess
+            myKill.Kill()
+        Next
+        For Each myKill As Process In myDSPGameProcess
+            myKill.Kill()
+        Next
+        For Each myKill As Process In myDSPSearchProcess
+            myKill.Kill()
+        Next
+        For i = 0 To textBoxes.Length - 1
+            My.Settings.TextBoxValues(i) = textBoxes(i).Text
+        Next
+        My.Settings.Save()
         End
     End Sub
 
