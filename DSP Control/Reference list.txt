@@ -6,3 +6,4 @@ Note 5: Check to see if process is running at: https://social.msdn.microsoft.com
 Note 6: Code for this located at: http://www.thewebflash.com/2011/11/folder-browse-dialog-coding-in-visual.html
 Note 7: Code from https://www.youtube.com/watch?v=EbUYvYQMZNA
 Note 8: Form cleanup from xdemolish https://github.com/xdemolish (Please see current pull)
+Note 9: View menu and hiding uneeded clutter from: http://www.homeandlearn.co.uk/NET/nets4p11.html

@@ -54,13 +54,13 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(), _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()> _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property TextBoxValues() As Global.System.Collections.Specialized.StringCollection
             Get
-                Return CType(Me("TextBoxValues"), Global.System.Collections.Specialized.StringCollection)
+                Return CType(Me("TextBoxValues"),Global.System.Collections.Specialized.StringCollection)
             End Get
-            Set(value As Global.System.Collections.Specialized.StringCollection)
+            Set
                 Me("TextBoxValues") = value
             End Set
         End Property

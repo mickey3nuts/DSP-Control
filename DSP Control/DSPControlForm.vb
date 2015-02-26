@@ -34,10 +34,6 @@
         My.Settings.Save()
     End Sub
 
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Dim myDSPConnectProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSConnect-server")
         Dim myDSPGameProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSGame-server")
@@ -58,9 +54,45 @@
         End
     End Sub
 
+    Private Sub ViewDirectoryPathToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewDirectoryPathToolStripMenuItem.Click
+        'Note 9
+        If ViewDirectoryPathToolStripMenuItem.Checked = True Then
+            DSPPath.Visible = True
+            TextBox1.Visible = True
+            Label1.Visible = True
+            AshitaPath.Visible = True
+            TextBox2.Visible = True
+            Label2.Visible = True
+        Else
+            DSPPath.Visible = False
+            TextBox1.Visible = False
+            Label1.Visible = False
+            AshitaPath.Visible = False
+            TextBox2.Visible = False
+            Label2.Visible = False
+        End If
+    End Sub
+
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
         AboutBox.Activate()
         AboutBox.Show()
+    End Sub
+
+    Private Sub LaunchAshitaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchAshitaToolStripMenuItem.Click
+        Dim proc As New ProcessStartInfo()
+        Dim p() As Process
+        If String.IsNullOrEmpty(TextBox2.Text) Then
+            MsgBox("You need to declare Ashita's path", vbExclamation)
+        Else
+            p = Process.GetProcessesByName("Ashita")
+            If p.Count > 0 Then
+                MsgBox("Ashita is already running", vbExclamation)
+            Else
+                proc.WorkingDirectory = TextBox2.Text
+                proc.FileName = "Ashita.exe"
+                Process.Start(proc)
+            End If
+        End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles StartServer.Click
@@ -100,16 +132,6 @@
         End If
     End Sub
 
-    Private Sub DSPPath_Click(sender As Object, e As EventArgs) Handles DSPPath.Click
-        'Note 6
-        Dim folderBrowser As New FolderBrowserDialog
-        folderBrowser.SelectedPath = My.Computer.FileSystem.SpecialDirectories.MyDocuments    'Set the default selected folder path
-
-        If (folderBrowser.ShowDialog() = DialogResult.OK) Then
-            TextBox1.Text = folderBrowser.SelectedPath
-        End If
-    End Sub
-
     Private Sub StopServer_Click(sender As Object, e As EventArgs) Handles StopServer.Click
         'Note 7
         Dim myDSPConnectProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSConnect-server")
@@ -132,20 +154,13 @@
         Button1_Click(sender, e)
     End Sub
 
-    Private Sub LaunchAshitaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchAshitaToolStripMenuItem.Click
-        Dim proc As New ProcessStartInfo()
-        Dim p() As Process
-        If String.IsNullOrEmpty(TextBox2.Text) Then
-            MsgBox("You need to declare Ashita's path", vbExclamation)
-        Else
-            p = Process.GetProcessesByName("Ashita")
-            If p.Count > 0 Then
-                MsgBox("Ashita is already running", vbExclamation)
-            Else
-                proc.WorkingDirectory = TextBox2.Text
-                proc.FileName = "Ashita.exe"
-                Process.Start(proc)
-            End If
+    Private Sub DSPPath_Click(sender As Object, e As EventArgs) Handles DSPPath.Click
+        'Note 6
+        Dim folderBrowser As New FolderBrowserDialog
+        folderBrowser.SelectedPath = My.Computer.FileSystem.SpecialDirectories.MyDocuments    'Set the default selected folder path
+
+        If (folderBrowser.ShowDialog() = DialogResult.OK) Then
+            TextBox1.Text = folderBrowser.SelectedPath
         End If
     End Sub
 

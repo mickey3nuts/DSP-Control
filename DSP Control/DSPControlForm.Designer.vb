@@ -26,6 +26,10 @@ Partial Class DSPControlForm
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaunchAshitaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewDirectoryPathToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StartServer = New System.Windows.Forms.Button()
@@ -40,8 +44,6 @@ Partial Class DSPControlForm
         Me.Label2 = New System.Windows.Forms.Label()
         Me.AshitaPath = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LaunchAshitaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,7 +53,7 @@ Partial Class DSPControlForm
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.ViewToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(528, 24)
@@ -70,6 +72,35 @@ Partial Class DSPControlForm
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(92, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'ToolsToolStripMenuItem
+        '
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaunchAshitaToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ToolsToolStripMenuItem.Text = "Tools"
+        '
+        'LaunchAshitaToolStripMenuItem
+        '
+        Me.LaunchAshitaToolStripMenuItem.Name = "LaunchAshitaToolStripMenuItem"
+        Me.LaunchAshitaToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
+        Me.LaunchAshitaToolStripMenuItem.Text = "Launch Ashita"
+        '
+        'ViewToolStripMenuItem
+        '
+        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewDirectoryPathToolStripMenuItem})
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.ViewToolStripMenuItem.Text = "View"
+        '
+        'ViewDirectoryPathToolStripMenuItem
+        '
+        Me.ViewDirectoryPathToolStripMenuItem.Checked = True
+        Me.ViewDirectoryPathToolStripMenuItem.CheckOnClick = True
+        Me.ViewDirectoryPathToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.ViewDirectoryPathToolStripMenuItem.Name = "ViewDirectoryPathToolStripMenuItem"
+        Me.ViewDirectoryPathToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.ViewDirectoryPathToolStripMenuItem.Text = "View Directory Path"
         '
         'HelpToolStripMenuItem
         '
@@ -191,19 +222,6 @@ Partial Class DSPControlForm
         Me.TextBox2.Size = New System.Drawing.Size(100, 20)
         Me.TextBox2.TabIndex = 12
         '
-        'ToolsToolStripMenuItem
-        '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaunchAshitaToolStripMenuItem})
-        Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
-        Me.ToolsToolStripMenuItem.Text = "Tools"
-        '
-        'LaunchAshitaToolStripMenuItem
-        '
-        Me.LaunchAshitaToolStripMenuItem.Name = "LaunchAshitaToolStripMenuItem"
-        Me.LaunchAshitaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.LaunchAshitaToolStripMenuItem.Text = "Launch Ashita"
-        '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
@@ -265,5 +283,7 @@ Partial Class DSPControlForm
     Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaunchAshitaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents ViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ViewDirectoryPathToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
