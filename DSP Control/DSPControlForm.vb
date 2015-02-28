@@ -1,18 +1,20 @@
 ﻿Imports System.IO
+
 Public Class DSPControlForm
-    Dim b As String = "C:\temp\AshitaPath.txt"
-    Dim c As String = "C:\temp\DSPPath.txt"
+
+    Dim AshitaPath As String = "C:\temp\AshitaPath.txt"
+    Dim DSPPath As String = "C:\temp\DSPPath.txt"
+
     Private Sub DSPControlForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        
-        If Not File.Exists(c) Then
-            Dim d As FileStream
-            d = File.Create(c)
-            d.Close()
+        If Not File.Exists(DSPPath) Then
+            Dim DSPStream As FileStream
+            DSPStream = File.Create(DSPPath)
+            DSPStream.Close()
         End If
-        If Not File.Exists(b) Then
-            Dim f As FileStream
-            f = File.Create(b)
-            f.Close()
+        If Not File.Exists(AshitaPath) Then
+            Dim AshitaStream As FileStream
+            AshitaStream = File.Create(AshitaPath)
+            AshitaStream.Close()
         End If
     End Sub
 
@@ -31,22 +33,6 @@ Public Class DSPControlForm
         Next
     End Sub
 
-    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-        Dim myDSPConnectProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSConnect-server")
-        Dim myDSPGameProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSGame-server")
-        Dim myDSPSearchProcess() As Process = System.Diagnostics.Process.GetProcessesByName("DSSearch-server")
-        For Each myKill As Process In myDSPConnectProcess
-            myKill.Kill()
-        Next
-        For Each myKill As Process In myDSPGameProcess
-            myKill.Kill()
-        Next
-        For Each myKill As Process In myDSPSearchProcess
-            myKill.Kill()
-        Next
-        End
-    End Sub
-
     Private Sub ViewDirectoryPathToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewDirectoryPathToolStripMenuItem.Click
         'Note 9
         PathLocations.Activate()
@@ -60,17 +46,17 @@ Public Class DSPControlForm
 
     Private Sub LaunchAshitaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchAshitaToolStripMenuItem.Click
         Dim proc As New ProcessStartInfo()
-        Dim p() As Process
+        Dim AshitaRunningVerification() As Process
         If TextBox2.Text = Nothing Then
-            Dim AshitaReader As New StreamReader(b, False)
+            Dim AshitaReader As New StreamReader(AshitaPath, False)
             TextBox2.Text = AshitaReader.ReadToEnd
             AshitaReader.Close()
         End If
         If String.IsNullOrEmpty(TextBox2.Text) Then
             MsgBox("You need to declare Ashita's path", vbExclamation)
         Else
-            p = Process.GetProcessesByName("Ashita")
-            If p.Count > 0 Then
+            AshitaRunningVerification = Process.GetProcessesByName("Ashita")
+            If AshitaRunningVerification.Count > 0 Then
                 MsgBox("Ashita is already running", vbExclamation)
             Else
                 proc.WorkingDirectory = TextBox2.Text
@@ -86,10 +72,10 @@ Public Class DSPControlForm
         'Note 3
         Dim prochide As New ProcessStartInfo()
         prochide.WindowStyle = ProcessWindowStyle.Hidden
-        Dim p() As Process
+        Dim ServerRunningVerification() As Process
         'Note 4
         If TextBox1.Text = Nothing Then
-            Dim DSPReader As New StreamReader(c, False)
+            Dim DSPReader As New StreamReader(DSPPath, False)
             TextBox1.Text = DSPReader.ReadToEnd
             DSPReader.Close()
         End If
@@ -97,8 +83,8 @@ Public Class DSPControlForm
             MsgBox("You need to declare the DSP path", vbExclamation)
         Else
             'Note 5
-            p = Process.GetProcessesByName("DSConnect-server")
-            If p.Count > 0 Then
+            ServerRunningVerification = Process.GetProcessesByName("DSConnect-server")
+            If ServerRunningVerification.Count > 0 Then
                 MsgBox("The server is already running", vbExclamation)
             Else
                 If ViewServerConsolesToolStripMenuItem.CheckState = 1 Then
