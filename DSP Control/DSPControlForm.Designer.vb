@@ -30,6 +30,7 @@ Partial Class DSPControlForm
         Me.LaunchAshitaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewDirectoryPathToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewServerConsolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StartServer = New System.Windows.Forms.Button()
@@ -39,12 +40,7 @@ Partial Class DSPControlForm
         Me.RestartServer = New System.Windows.Forms.Button()
         Me.StopServer = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DSPPath = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.AshitaPath = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,7 +52,7 @@ Partial Class DSPControlForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.ViewToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(528, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(444, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -88,19 +84,23 @@ Partial Class DSPControlForm
         '
         'ViewToolStripMenuItem
         '
-        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewDirectoryPathToolStripMenuItem})
+        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewDirectoryPathToolStripMenuItem, Me.ViewServerConsolesToolStripMenuItem})
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.ViewToolStripMenuItem.Text = "View"
         '
         'ViewDirectoryPathToolStripMenuItem
         '
-        Me.ViewDirectoryPathToolStripMenuItem.Checked = True
-        Me.ViewDirectoryPathToolStripMenuItem.CheckOnClick = True
-        Me.ViewDirectoryPathToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.ViewDirectoryPathToolStripMenuItem.Name = "ViewDirectoryPathToolStripMenuItem"
-        Me.ViewDirectoryPathToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.ViewDirectoryPathToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
         Me.ViewDirectoryPathToolStripMenuItem.Text = "View Directory Path"
+        '
+        'ViewServerConsolesToolStripMenuItem
+        '
+        Me.ViewServerConsolesToolStripMenuItem.CheckOnClick = True
+        Me.ViewServerConsolesToolStripMenuItem.Name = "ViewServerConsolesToolStripMenuItem"
+        Me.ViewServerConsolesToolStripMenuItem.Size = New System.Drawing.Size(185, 22)
+        Me.ViewServerConsolesToolStripMenuItem.Text = "View Server Consoles"
         '
         'HelpToolStripMenuItem
         '
@@ -117,7 +117,7 @@ Partial Class DSPControlForm
         '
         'StartServer
         '
-        Me.StartServer.Location = New System.Drawing.Point(63, 154)
+        Me.StartServer.Location = New System.Drawing.Point(18, 135)
         Me.StartServer.Name = "StartServer"
         Me.StartServer.Size = New System.Drawing.Size(82, 23)
         Me.StartServer.TabIndex = 1
@@ -127,7 +127,7 @@ Partial Class DSPControlForm
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(63, 57)
+        Me.PictureBox1.Location = New System.Drawing.Point(18, 38)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(82, 79)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -137,7 +137,7 @@ Partial Class DSPControlForm
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(225, 57)
+        Me.PictureBox2.Location = New System.Drawing.Point(180, 38)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(82, 79)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -147,7 +147,7 @@ Partial Class DSPControlForm
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(385, 57)
+        Me.PictureBox3.Location = New System.Drawing.Point(340, 38)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(82, 79)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -156,7 +156,7 @@ Partial Class DSPControlForm
         '
         'RestartServer
         '
-        Me.RestartServer.Location = New System.Drawing.Point(225, 154)
+        Me.RestartServer.Location = New System.Drawing.Point(180, 135)
         Me.RestartServer.Name = "RestartServer"
         Me.RestartServer.Size = New System.Drawing.Size(82, 23)
         Me.RestartServer.TabIndex = 5
@@ -165,7 +165,7 @@ Partial Class DSPControlForm
         '
         'StopServer
         '
-        Me.StopServer.Location = New System.Drawing.Point(385, 154)
+        Me.StopServer.Location = New System.Drawing.Point(340, 135)
         Me.StopServer.Name = "StopServer"
         Me.StopServer.Size = New System.Drawing.Size(82, 23)
         Me.StopServer.TabIndex = 6
@@ -174,75 +174,26 @@ Partial Class DSPControlForm
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(48, 225)
+        Me.TextBox1.Location = New System.Drawing.Point(0, 183)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
         Me.TextBox1.TabIndex = 7
-        '
-        'DSPPath
-        '
-        Me.DSPPath.Location = New System.Drawing.Point(154, 222)
-        Me.DSPPath.Name = "DSPPath"
-        Me.DSPPath.Size = New System.Drawing.Size(75, 23)
-        Me.DSPPath.TabIndex = 8
-        Me.DSPPath.Text = "Browse"
-        Me.DSPPath.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(45, 206)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 13)
-        Me.Label1.TabIndex = 9
-        Me.Label1.Text = "DSP location"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(312, 206)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(80, 13)
-        Me.Label2.TabIndex = 10
-        Me.Label2.Text = "Ashita Location"
-        '
-        'AshitaPath
-        '
-        Me.AshitaPath.Location = New System.Drawing.Point(421, 223)
-        Me.AshitaPath.Name = "AshitaPath"
-        Me.AshitaPath.Size = New System.Drawing.Size(75, 23)
-        Me.AshitaPath.TabIndex = 11
-        Me.AshitaPath.Text = "Browse"
-        Me.AshitaPath.UseVisualStyleBackColor = True
+        Me.TextBox1.Visible = False
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(315, 225)
+        Me.TextBox2.Location = New System.Drawing.Point(0, 183)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(100, 20)
         Me.TextBox2.TabIndex = 12
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(48, 257)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(133, 17)
-        Me.CheckBox1.TabIndex = 14
-        Me.CheckBox1.Text = "Show Server Consoles"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.TextBox2.Visible = False
         '
         'DSPControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(528, 286)
-        Me.Controls.Add(Me.CheckBox1)
+        Me.ClientSize = New System.Drawing.Size(444, 173)
         Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.AshitaPath)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.DSPPath)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.StopServer)
         Me.Controls.Add(Me.RestartServer)
@@ -275,15 +226,11 @@ Partial Class DSPControlForm
     Friend WithEvents RestartServer As System.Windows.Forms.Button
     Friend WithEvents StopServer As System.Windows.Forms.Button
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents DSPPath As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents AshitaPath As System.Windows.Forms.Button
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaunchAshitaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents ViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ViewDirectoryPathToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ViewServerConsolesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

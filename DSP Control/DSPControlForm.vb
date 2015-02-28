@@ -1,18 +1,19 @@
-﻿Public Class DSPControlForm
-    'Note 1
-    Dim textBoxes() As TextBox
-
+﻿Imports System.IO
+Public Class DSPControlForm
+    Dim b As String = "C:\temp\AshitaPath.txt"
+    Dim c As String = "C:\temp\DSPPath.txt"
     Private Sub DSPControlForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        '' add all textbox names here whose value you want to persist.
-        textBoxes = New TextBox() {TextBox1, TextBox2}
-
-        With My.Settings
-            If .TextBoxValues Is Nothing Then .TextBoxValues = New System.Collections.Specialized.StringCollection
-            For i = 0 To textBoxes.Length - 1
-                If .TextBoxValues.Count <= i Then .TextBoxValues.Add("")
-                textBoxes(i).Text = .TextBoxValues(i)
-            Next
-        End With
+        
+        If Not File.Exists(c) Then
+            Dim d As FileStream
+            d = File.Create(c)
+            d.Close()
+        End If
+        If Not File.Exists(b) Then
+            Dim f As FileStream
+            f = File.Create(b)
+            f.Close()
+        End If
     End Sub
 
     Private Sub DSPControlForm_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
@@ -28,10 +29,6 @@
         For Each myKill As Process In myDSPSearchProcess
             myKill.Kill()
         Next
-        For i = 0 To textBoxes.Length - 1
-            My.Settings.TextBoxValues(i) = textBoxes(i).Text
-        Next
-        My.Settings.Save()
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -47,30 +44,13 @@
         For Each myKill As Process In myDSPSearchProcess
             myKill.Kill()
         Next
-        For i = 0 To textBoxes.Length - 1
-            My.Settings.TextBoxValues(i) = textBoxes(i).Text
-        Next
-        My.Settings.Save()
         End
     End Sub
 
     Private Sub ViewDirectoryPathToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ViewDirectoryPathToolStripMenuItem.Click
         'Note 9
-        If ViewDirectoryPathToolStripMenuItem.Checked = True Then
-            DSPPath.Visible = True
-            TextBox1.Visible = True
-            Label1.Visible = True
-            AshitaPath.Visible = True
-            TextBox2.Visible = True
-            Label2.Visible = True
-        Else
-            DSPPath.Visible = False
-            TextBox1.Visible = False
-            Label1.Visible = False
-            AshitaPath.Visible = False
-            TextBox2.Visible = False
-            Label2.Visible = False
-        End If
+        PathLocations.Activate()
+        PathLocations.Show()
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
@@ -81,6 +61,11 @@
     Private Sub LaunchAshitaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchAshitaToolStripMenuItem.Click
         Dim proc As New ProcessStartInfo()
         Dim p() As Process
+        If TextBox2.Text = Nothing Then
+            Dim AshitaReader As New StreamReader(b, False)
+            TextBox2.Text = AshitaReader.ReadToEnd
+            AshitaReader.Close()
+        End If
         If String.IsNullOrEmpty(TextBox2.Text) Then
             MsgBox("You need to declare Ashita's path", vbExclamation)
         Else
@@ -95,7 +80,7 @@
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles StartServer.Click
+    Private Sub StartServer_Click(sender As Object, e As EventArgs) Handles StartServer.Click
         Dim proc As New ProcessStartInfo()
         'Note 2
         'Note 3
@@ -103,6 +88,11 @@
         prochide.WindowStyle = ProcessWindowStyle.Hidden
         Dim p() As Process
         'Note 4
+        If TextBox1.Text = Nothing Then
+            Dim DSPReader As New StreamReader(c, False)
+            TextBox1.Text = DSPReader.ReadToEnd
+            DSPReader.Close()
+        End If
         If String.IsNullOrEmpty(TextBox1.Text) Then
             MsgBox("You need to declare the DSP path", vbExclamation)
         Else
@@ -111,7 +101,7 @@
             If p.Count > 0 Then
                 MsgBox("The server is already running", vbExclamation)
             Else
-                If CheckBox1.CheckState = 1 Then
+                If ViewServerConsolesToolStripMenuItem.CheckState = 1 Then
                     proc.WorkingDirectory = TextBox1.Text
                     proc.FileName = "DSConnect-server.exe"
                     Process.Start(proc)
@@ -151,25 +141,7 @@
     Private Sub RestartServer_Click(sender As Object, e As EventArgs) Handles RestartServer.Click
         'Note 8
         StopServer_Click(sender, e)
-        Button1_Click(sender, e)
+        StartServer_Click(sender, e)
     End Sub
 
-    Private Sub DSPPath_Click(sender As Object, e As EventArgs) Handles DSPPath.Click
-        'Note 6
-        Dim folderBrowser As New FolderBrowserDialog
-        folderBrowser.SelectedPath = My.Computer.FileSystem.SpecialDirectories.MyDocuments    'Set the default selected folder path
-
-        If (folderBrowser.ShowDialog() = DialogResult.OK) Then
-            TextBox1.Text = folderBrowser.SelectedPath
-        End If
-    End Sub
-
-    Private Sub AshitaPath_Click(sender As Object, e As EventArgs) Handles AshitaPath.Click
-        Dim folderBrowser As New FolderBrowserDialog
-        folderBrowser.SelectedPath = My.Computer.FileSystem.SpecialDirectories.MyDocuments    'Set the default selected folder path
-
-        If (folderBrowser.ShowDialog() = DialogResult.OK) Then
-            TextBox2.Text = folderBrowser.SelectedPath
-        End If
-    End Sub
 End Class
