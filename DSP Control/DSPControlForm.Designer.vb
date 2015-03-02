@@ -217,7 +217,7 @@ Partial Class DSPControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(450, 321)
+        Me.ClientSize = New System.Drawing.Size(450, 164)
         Me.Controls.Add(Me.ShowSearchMessagesTextBox)
         Me.Controls.Add(Me.ShowGameMessagesTextBox)
         Me.Controls.Add(Me.ShowLobbyMessagesTextBox)

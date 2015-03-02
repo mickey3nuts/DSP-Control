@@ -29,7 +29,7 @@
     Private Sub LaunchAshitaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaunchAshitaToolStripMenuItem.Click
         Dim proc As New ProcessStartInfo()
         Dim AshitaRunningVerification() As Process
-        If My.Settings.AshitaPath Is Nothing Then
+        If My.Settings.AshitaPath.Length < 2 Then
             MsgBox("You need to declare Ashita's path", vbExclamation)
         Else
             AshitaRunningVerification = Process.GetProcessesByName("Ashita")
@@ -51,7 +51,7 @@
         prochide.WindowStyle = ProcessWindowStyle.Hidden
         Dim ServerRunningVerification() As Process
         'Note 4
-        If My.Settings.DSPPath Is Nothing Then
+        If My.Settings.DSPPath.Length < 2 Then
             MsgBox("You need to declare the DSP path", vbExclamation)
         Else
             'Note 5
