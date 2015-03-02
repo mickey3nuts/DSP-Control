@@ -31,14 +31,18 @@ Partial Class DSPControlForm
         Me.ViewServerConsolesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StartServer = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.RestartServer = New System.Windows.Forms.Button()
         Me.StopServer = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.ShowLobbyMessagesButton = New System.Windows.Forms.Button()
+        Me.ShowGameMessagesButton = New System.Windows.Forms.Button()
+        Me.ShowSearchMessagesButton = New System.Windows.Forms.Button()
+        Me.ShowLobbyMessagesTextBox = New System.Windows.Forms.TextBox()
+        Me.ShowGameMessagesTextBox = New System.Windows.Forms.TextBox()
+        Me.ShowSearchMessagesTextBox = New System.Windows.Forms.TextBox()
+        Me.StartServer = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,7 +54,7 @@ Partial Class DSPControlForm
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolsToolStripMenuItem, Me.ViewToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(444, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(450, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -64,7 +68,7 @@ Partial Class DSPControlForm
         'LaunchAshitaToolStripMenuItem
         '
         Me.LaunchAshitaToolStripMenuItem.Name = "LaunchAshitaToolStripMenuItem"
-        Me.LaunchAshitaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LaunchAshitaToolStripMenuItem.Size = New System.Drawing.Size(149, 22)
         Me.LaunchAshitaToolStripMenuItem.Text = "Launch Ashita"
         '
         'ViewToolStripMenuItem
@@ -100,15 +104,6 @@ Partial Class DSPControlForm
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
-        'StartServer
-        '
-        Me.StartServer.Location = New System.Drawing.Point(18, 135)
-        Me.StartServer.Name = "StartServer"
-        Me.StartServer.Size = New System.Drawing.Size(82, 23)
-        Me.StartServer.TabIndex = 1
-        Me.StartServer.Text = "Start Server"
-        Me.StartServer.UseVisualStyleBackColor = True
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
@@ -143,9 +138,9 @@ Partial Class DSPControlForm
         '
         Me.RestartServer.Location = New System.Drawing.Point(180, 135)
         Me.RestartServer.Name = "RestartServer"
-        Me.RestartServer.Size = New System.Drawing.Size(82, 23)
+        Me.RestartServer.Size = New System.Drawing.Size(94, 23)
         Me.RestartServer.TabIndex = 5
-        Me.RestartServer.Text = "Restart Server"
+        Me.RestartServer.Text = "Restart Servers"
         Me.RestartServer.UseVisualStyleBackColor = True
         '
         'StopServer
@@ -154,32 +149,81 @@ Partial Class DSPControlForm
         Me.StopServer.Name = "StopServer"
         Me.StopServer.Size = New System.Drawing.Size(82, 23)
         Me.StopServer.TabIndex = 6
-        Me.StopServer.Text = "Stop Server"
+        Me.StopServer.Text = "Stop Servers"
         Me.StopServer.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'ShowLobbyMessagesButton
         '
-        Me.TextBox1.Location = New System.Drawing.Point(0, 183)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 7
-        Me.TextBox1.Visible = False
+        Me.ShowLobbyMessagesButton.Location = New System.Drawing.Point(18, 165)
+        Me.ShowLobbyMessagesButton.Name = "ShowLobbyMessagesButton"
+        Me.ShowLobbyMessagesButton.Size = New System.Drawing.Size(136, 23)
+        Me.ShowLobbyMessagesButton.TabIndex = 13
+        Me.ShowLobbyMessagesButton.Text = "Show Lobby Messages"
+        Me.ShowLobbyMessagesButton.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'ShowGameMessagesButton
         '
-        Me.TextBox2.Location = New System.Drawing.Point(0, 183)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 12
-        Me.TextBox2.Visible = False
+        Me.ShowGameMessagesButton.Location = New System.Drawing.Point(161, 164)
+        Me.ShowGameMessagesButton.Name = "ShowGameMessagesButton"
+        Me.ShowGameMessagesButton.Size = New System.Drawing.Size(134, 23)
+        Me.ShowGameMessagesButton.TabIndex = 14
+        Me.ShowGameMessagesButton.Text = "Show Game Messages"
+        Me.ShowGameMessagesButton.UseVisualStyleBackColor = True
+        '
+        'ShowSearchMessagesButton
+        '
+        Me.ShowSearchMessagesButton.Location = New System.Drawing.Point(302, 165)
+        Me.ShowSearchMessagesButton.Name = "ShowSearchMessagesButton"
+        Me.ShowSearchMessagesButton.Size = New System.Drawing.Size(141, 23)
+        Me.ShowSearchMessagesButton.TabIndex = 15
+        Me.ShowSearchMessagesButton.Text = "Show Search Messages"
+        Me.ShowSearchMessagesButton.UseVisualStyleBackColor = True
+        '
+        'ShowLobbyMessagesTextBox
+        '
+        Me.ShowLobbyMessagesTextBox.Location = New System.Drawing.Point(18, 195)
+        Me.ShowLobbyMessagesTextBox.Multiline = True
+        Me.ShowLobbyMessagesTextBox.Name = "ShowLobbyMessagesTextBox"
+        Me.ShowLobbyMessagesTextBox.Size = New System.Drawing.Size(136, 115)
+        Me.ShowLobbyMessagesTextBox.TabIndex = 16
+        '
+        'ShowGameMessagesTextBox
+        '
+        Me.ShowGameMessagesTextBox.Location = New System.Drawing.Point(161, 195)
+        Me.ShowGameMessagesTextBox.Multiline = True
+        Me.ShowGameMessagesTextBox.Name = "ShowGameMessagesTextBox"
+        Me.ShowGameMessagesTextBox.Size = New System.Drawing.Size(134, 115)
+        Me.ShowGameMessagesTextBox.TabIndex = 17
+        '
+        'ShowSearchMessagesTextBox
+        '
+        Me.ShowSearchMessagesTextBox.Location = New System.Drawing.Point(302, 195)
+        Me.ShowSearchMessagesTextBox.Multiline = True
+        Me.ShowSearchMessagesTextBox.Name = "ShowSearchMessagesTextBox"
+        Me.ShowSearchMessagesTextBox.Size = New System.Drawing.Size(141, 115)
+        Me.ShowSearchMessagesTextBox.TabIndex = 18
+        '
+        'StartServer
+        '
+        Me.StartServer.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.DSP_Control.My.MySettings.Default, "servers", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.StartServer.Location = New System.Drawing.Point(18, 135)
+        Me.StartServer.Name = "StartServer"
+        Me.StartServer.Size = New System.Drawing.Size(82, 23)
+        Me.StartServer.TabIndex = 1
+        Me.StartServer.Text = "Start Servers"
+        Me.StartServer.UseVisualStyleBackColor = True
         '
         'DSPControlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(444, 173)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.ClientSize = New System.Drawing.Size(450, 321)
+        Me.Controls.Add(Me.ShowSearchMessagesTextBox)
+        Me.Controls.Add(Me.ShowGameMessagesTextBox)
+        Me.Controls.Add(Me.ShowLobbyMessagesTextBox)
+        Me.Controls.Add(Me.ShowSearchMessagesButton)
+        Me.Controls.Add(Me.ShowGameMessagesButton)
+        Me.Controls.Add(Me.ShowLobbyMessagesButton)
         Me.Controls.Add(Me.StopServer)
         Me.Controls.Add(Me.RestartServer)
         Me.Controls.Add(Me.PictureBox3)
@@ -208,12 +252,16 @@ Partial Class DSPControlForm
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents RestartServer As System.Windows.Forms.Button
     Friend WithEvents StopServer As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaunchAshitaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ViewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ViewDirectoryPathToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ViewServerConsolesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ShowLobbyMessagesButton As System.Windows.Forms.Button
+    Friend WithEvents ShowGameMessagesButton As System.Windows.Forms.Button
+    Friend WithEvents ShowSearchMessagesButton As System.Windows.Forms.Button
+    Friend WithEvents ShowLobbyMessagesTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ShowGameMessagesTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents ShowSearchMessagesTextBox As System.Windows.Forms.TextBox
 
 End Class

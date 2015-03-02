@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class PathLocations
+Partial Class PathLocationsListBox
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -28,16 +28,16 @@ Partial Class PathLocations
         Me.DSPPathLabel = New System.Windows.Forms.Label()
         Me.DSPPathButton = New System.Windows.Forms.Button()
         Me.DSPPathTextBox = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'AshitaPathTextBox
         '
+        Me.AshitaPathTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.DSP_Control.My.MySettings.Default, "AshitaPath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.AshitaPathTextBox.Location = New System.Drawing.Point(15, 73)
         Me.AshitaPathTextBox.Name = "AshitaPathTextBox"
         Me.AshitaPathTextBox.Size = New System.Drawing.Size(196, 20)
         Me.AshitaPathTextBox.TabIndex = 18
+        Me.AshitaPathTextBox.Text = Global.DSP_Control.My.MySettings.Default.AshitaPath
         '
         'AshitaPathButton
         '
@@ -77,43 +77,25 @@ Partial Class PathLocations
         '
         'DSPPathTextBox
         '
+        Me.DSPPathTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.DSP_Control.My.MySettings.Default, "DSPPath", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.DSPPathTextBox.Location = New System.Drawing.Point(15, 25)
         Me.DSPPathTextBox.Name = "DSPPathTextBox"
         Me.DSPPathTextBox.Size = New System.Drawing.Size(196, 20)
         Me.DSPPathTextBox.TabIndex = 13
+        Me.DSPPathTextBox.Text = Global.DSP_Control.My.MySettings.Default.DSPPath
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(15, 129)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 19
-        Me.Button1.Text = "Load Paths"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(217, 129)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 20
-        Me.Button2.Text = "Save Paths"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'PathLocations
+        'PathLocationsListBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(315, 164)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(314, 123)
         Me.Controls.Add(Me.AshitaPathTextBox)
         Me.Controls.Add(Me.AshitaPathButton)
         Me.Controls.Add(Me.AshitaPathLabel)
         Me.Controls.Add(Me.DSPPathLabel)
         Me.Controls.Add(Me.DSPPathButton)
         Me.Controls.Add(Me.DSPPathTextBox)
-        Me.Name = "PathLocations"
+        Me.Name = "PathLocationsListBox"
         Me.Text = "PathLocations"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -125,6 +107,4 @@ Partial Class PathLocations
     Friend WithEvents DSPPathLabel As System.Windows.Forms.Label
     Friend WithEvents DSPPathButton As System.Windows.Forms.Button
     Friend WithEvents DSPPathTextBox As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

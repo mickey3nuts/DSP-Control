@@ -55,13 +55,26 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property TextBoxValues() As Global.System.Collections.Specialized.StringCollection
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property DSPPath() As String
             Get
-                Return CType(Me("TextBoxValues"),Global.System.Collections.Specialized.StringCollection)
+                Return CType(Me("DSPPath"),String)
             End Get
             Set
-                Me("TextBoxValues") = value
+                Me("DSPPath") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property AshitaPath() As String
+            Get
+                Return CType(Me("AshitaPath"),String)
+            End Get
+            Set
+                Me("AshitaPath") = value
             End Set
         End Property
     End Class
